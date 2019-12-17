@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>list</title>
+
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  <script th:src="@{/js/bootstrap.min.js}"></script>
+
+  <link rel="stylesheet" th:href="@{/css/my.css}">
+
+</head>
+<body>
+  <table class="table">
+    <th>id</th>
+    <th>name</th>
+    <th>nickname</th>
+    <th>password</th>
+    <th>age</th>
+
+    <tr th:each="account: ${allAccount}">
+      <td th:text="${account.id}"></td>
+      <td th:text="${account.name}"></td>
+      <td th:text="${account.nickname}"></td>
+      <td th:text="${account.password}"></td>
+      <td th:text="${account.age}"></td>
+    </tr>
+  </table>
+</body>
+</html>

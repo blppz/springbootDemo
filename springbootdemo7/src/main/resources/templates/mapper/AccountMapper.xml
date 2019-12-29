@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bl.springbootdemo7.springbootdemo7.mapper.AccountMapper">
+
+  <select id="findAll" resultMap="accountMap">
+    select * from account
+  </select>
+
+  <insert id="saveOne" parameterType="com.bl.springbootdemo7.springbootdemo7.domain.Account">
+    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+      select last_insert_id() as id
+    </selectKey>
+    insert into account(
+        `id`,`login_name`,`password`,
+    )
+  </insert>
+
+  <resultMap id="accountMap" type="com.bl.springbootdemo7.springbootdemo7.domain.Account">
+    <id column="id" property="id"></id>
+    <result property="loginName" column="login_name"></result>
+    <result property="password" column="password"></result>
+    <result property="nickName" column="nick_name"></result>
+    <result property="age" column="age"></result>
+    <result property="location" column="location"></result>
+    <result property="balance" column="balance"></result>
+  </resultMap>
+
+</mapper>
